@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="validate()">
+        <label for="">Username</label>
+        <input type="text">
+        <h5 style="color: red;"></h5>
+        <button type="submit">Submit</button>
+    </form>
+    
+
+
+    <script>
+        function validate(){
+            event.preventDefault();
+            var patt = /^[a-zA-Z]{5,}$/
+            var inp = document.getElementsByTagName("input")[0].value;
+            var error = document.getElementsByTagName("h5")[0];
+
+            if(inp == "" ){
+                error.innerHTML = "Username is Required"
+            }
+            else if(!patt.test(inp)){
+                error.innerHTML = "Username Invalid"
+            }
+            else{
+                alert("Successfully Username Created!")
+                error.innerHTML = ""
+            }
+        }
+    </script>
+</body>
+</html>
